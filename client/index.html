@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #moveCanvas{
+            width: 400px;
+            height: 3git00px;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.21)
+        }
+    </style>
+</head>
+<body>
+    <input type="text"/>
+
+    <button>click debounce</button>
+
+    <div id="moveCanvas"></div>
+
+    <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+    <script src="./script/debounce.js"></script>
+    <script src="./script/throttle.js"></script>
+
+    <script>
+        (function(){
+            var validate = lsl.debounce(function(e){
+                console.log('change', e.target.value, new Date-0);
+
+                if(/1[3|5|6|7|8|9]\d{9}/.test(e.target.value)){
+                    console.log('true');
+                }
+            }, 600);
+
+
+            var btnClick = lsl.debounce(function(e){
+                console.log('click', e.target.value, new Date-0);
+            }, 200);
+
+            var mousemove = lsl.throttle(function(e){
+                console.log(e.pageX, e.pageY);
+            }, 600);
+
+
+            document.querySelector('input').addEventListener('input', validate);
+
+            document.querySelector('button').addEventListener('click', btnClick);
+
+            document.querySelector('#moveCanvas').addEventListener('mousemove', mousemove);
+
+
+        })();
+    </script>
+</body>
+</html>
